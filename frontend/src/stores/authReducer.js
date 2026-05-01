@@ -23,19 +23,29 @@ const initialState = {
 };
 
 export const checkAuth = createAsyncThunk("auth/checkAuth", async () => {
-	const res = await axios.get(`${API_URL}/api/auth/check-auth`);
+	const res = await axios.get(`${API_URL}/api/auth/check-auth`, {
+		withCredentials: true,
+	});
 	return res.data.email;
 });
 
 export const login = createAsyncThunk("auth/login", async (loginForm) => {
-	const res = await axios.post(`${API_URL}/api/auth/login`, loginForm);
+	const res = await axios.post(
+		`${API_URL}/api/auth/login`,
+		loginForm,
+		{
+			withCredentials: true,
+		}
+	);
 
 	localStorage.setItem("user", res.data.email);
 	return res.data.email;
 });
 
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
-	await axios.get(`${API_URL}/api/auth/logout`);
+	await axios.get(`${API_URL}/api/auth/logout`, {
+		withCredentials: true,
+	});
 	localStorage.removeItem("user");
 });
 
