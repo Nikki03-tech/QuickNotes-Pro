@@ -8,6 +8,9 @@ import {
 	setSignupForm,
 } from "../stores/authReducer";
 
+// Your deployed backend URL
+const API_URL = "https://quicknotes-pro-1.onrender.com";
+
 export const SignupForm = () => {
 	const signupForm = useSelector((state) => state.auth.signupForm);
 	const loadingCheckAuth = useSelector((state) => state.auth.loadingCheckAuth);
@@ -27,17 +30,28 @@ export const SignupForm = () => {
 
 	const handleSignup = async (e) => {
 		e.preventDefault();
+
 		if (signupForm.password !== confirmPassword) {
 			alert("Passwords do not match!");
 			return;
 		}
-		const res = await axios.post("/api/auth/signup", signupForm);
-		console.log(res);
 
-		dispatch(checkAuth()).then(() => {
-			dispatch(resetSignupForm());
-			navigate("/");
-		});
+		try {
+			const res = await axios.post(
+				`${API_URL}/api/auth/signup`,
+				signupForm
+			);
+
+			console.log(res);
+
+			dispatch(checkAuth()).then(() => {
+				dispatch(resetSignupForm());
+				navigate("/");
+			});
+		} catch (error) {
+			console.error(error);
+			alert("Signup failed");
+		}
 	};
 
 	return (
