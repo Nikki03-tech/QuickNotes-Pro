@@ -26,7 +26,7 @@ This project is divided into two main parts: the backend and the frontend. Follo
 2. Clone the repository using Git:
 
    ```bash
-   git clone https://github.com/arsy786/notes-mern-app.git
+   git clone https://github.com/Nikki03-tech/QuickNotes-Pro.git
    ```
 
 3. Navigate to the cloned repository's root directory
