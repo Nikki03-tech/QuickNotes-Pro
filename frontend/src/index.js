@@ -6,7 +6,7 @@ import App from "./components/App";
 import "./index.css";
 import { store } from "./stores/store";
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://quicknotes-pro-1.onrender.com";
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
