@@ -14,7 +14,10 @@ const app = express();
 app.use(requestLogger); // Apply request logging middleware to log every request to the server
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({
+  origin: "https://quick-notes-pro-8fkv.vercel.app",
+  credentials: true
+}));
 
 // This is the root route. It is used to check if the server is running.
 app.get("/", (req, res) => {
