@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Your deployed backend URL
+const API_URL = "https://quicknotes-pro-1.onrender.com";
+
 const initialState = {
 	loginForm: {
 		email: "",
@@ -11,7 +14,6 @@ const initialState = {
 		password: "",
 	},
 	user: null,
-	// loggedIn: null,
 	loadingCheckAuth: false,
 	errorCheckAuth: null,
 	loadingLogin: false,
@@ -21,20 +23,19 @@ const initialState = {
 };
 
 export const checkAuth = createAsyncThunk("auth/checkAuth", async () => {
-	const res = await axios.get("/api/auth/check-auth");
+	const res = await axios.get(`${API_URL}/api/auth/check-auth`);
 	return res.data.email;
 });
 
 export const login = createAsyncThunk("auth/login", async (loginForm) => {
-	const res = await axios.post("/api/auth/login", loginForm);
-	// Logic for storing user email after successful login
-	localStorage.setItem("user", res.data.email);
+	const res = await axios.post(`${API_URL}/api/auth/login`, loginForm);
 
+	localStorage.setItem("user", res.data.email);
 	return res.data.email;
 });
 
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
-	await axios.get("/api/auth/logout");
+	await axios.get(`${API_URL}/api/auth/logout`);
 	localStorage.removeItem("user");
 });
 
@@ -48,13 +49,10 @@ export const authSlice = createSlice({
 		resetLoginForm: (state) => {
 			state.loginForm = initialState.loginForm;
 		},
-		// setLoggedIn: (state, action) => {
-		// 	state.loggedIn = action.payload;
-		// },
 		setSignupForm: (state, action) => {
 			state.signupForm = action.payload;
 		},
-		resetSignupForm: (state, action) => {
+		resetSignupForm: (state) => {
 			state.signupForm = initialState.signupForm;
 		},
 		setUser: (state, action) => {
@@ -69,12 +67,10 @@ export const authSlice = createSlice({
 			})
 			.addCase(checkAuth.fulfilled, (state, action) => {
 				state.loadingCheckAuth = false;
-				// state.loggedIn = true;
 				state.user = action.payload;
 			})
 			.addCase(checkAuth.rejected, (state, action) => {
 				state.loadingCheckAuth = false;
-				// state.loggedIn = false;
 				state.user = null;
 				state.errorCheckAuth = action.error.message;
 			})
@@ -84,12 +80,10 @@ export const authSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, action) => {
 				state.loadingLogin = false;
-				// state.loggedIn = true;
 				state.user = action.payload;
 			})
 			.addCase(login.rejected, (state, action) => {
 				state.loadingLogin = false;
-				// state.loggedIn = false;
 				state.user = null;
 				state.errorLogin = action.error.message;
 			})
@@ -97,14 +91,12 @@ export const authSlice = createSlice({
 				state.loadingLogout = true;
 				state.errorLogout = null;
 			})
-			.addCase(logoutUser.fulfilled, (state, action) => {
+			.addCase(logoutUser.fulfilled, (state) => {
 				state.loadingLogout = false;
-				// state.loggedIn = false;
 				state.user = null;
 			})
 			.addCase(logoutUser.rejected, (state, action) => {
 				state.loadingLogout = false;
-				// state.loggedIn = false;
 				state.errorLogout = action.error.message;
 			});
 	},
@@ -113,7 +105,6 @@ export const authSlice = createSlice({
 export const {
 	setLoginForm,
 	resetLoginForm,
-	setLoggedIn,
 	setSignupForm,
 	resetSignupForm,
 	setUser,
