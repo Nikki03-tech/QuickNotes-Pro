@@ -1,4 +1,4 @@
-# Notes MERN App
+# QuickNotes Pro
 
 This is a simple Notes app designed for managing notes with ease. The app is built using the MERN (MongoDB, Express, React, Node.js) stack and supports essential CRUD (Create, Read, Update, Delete) operations. It utilizes MongoDB for database management, Express and Node.js for server-side functionality, and React for a dynamic front-end user experience.
 
@@ -7,7 +7,7 @@ This is a simple Notes app designed for managing notes with ease. The app is bui
 ## Branches
 
     - main: frontend has no redux or components, everything is in App.js
-    - notes-app-with-redux: frontend is separated into components and uses redux toolkit to manage global state.
+    - notes-app-with-redux: frontend is separated into components and uses the redux toolkit to manage global state.
     - notes-app-with-redux-and-auth: same as above branch but implemented auth & styling into the frontend.
 
 ## Getting Started
@@ -32,7 +32,8 @@ This project is divided into two main parts: the backend and the frontend. Follo
 3. Navigate to the cloned repository's root directory
 
    ```bash
-   cd notes-mern-app
+   cd QuickNotes Pro
+
    ```
 
 ### Setting up the Backend
