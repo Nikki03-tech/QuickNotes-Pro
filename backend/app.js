@@ -15,7 +15,7 @@ app.use(requestLogger); // Apply request logging middleware to log every request
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://quick-notes-pro-8fkv.vercel.app",
+  origin: "https://quick-notes-pro-4m74.vercel.app",
   credentials: true
 }));
 
