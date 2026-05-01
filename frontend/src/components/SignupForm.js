@@ -39,7 +39,10 @@ export const SignupForm = () => {
 		try {
 			const res = await axios.post(
 				`${API_URL}/api/auth/signup`,
-				signupForm
+				signupForm,
+				{
+					withCredentials: true,
+				}
 			);
 
 			console.log(res);
