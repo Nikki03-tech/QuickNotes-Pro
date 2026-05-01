@@ -1,5 +1,22 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import logo from "../assets/notes.png";
+
 export const NavBar = () => {
 	const user = useSelector((state) => state.auth.user);
+	const loadingCheckAuth = useSelector(
+		(state) => state.auth.loadingCheckAuth
+	);
+	const loadingLogout = useSelector((state) => state.auth.loadingLogout);
+
+	if (loadingCheckAuth || loadingLogout) {
+		return (
+			<nav className="p-4 text-white bg-gray-800">
+				<p>Loading...</p>
+			</nav>
+		);
+	}
 
 	return (
 		<nav className="p-4 text-white bg-gray-800">
@@ -14,13 +31,32 @@ export const NavBar = () => {
 						<>
 							<p className="px-3 py-2">{user}</p>
 							<li>
-								<Link to="/logout">Logout</Link>
+								<Link
+									to="/logout"
+									className="px-3 py-2 rounded hover:bg-gray-700"
+								>
+									Logout
+								</Link>
 							</li>
 						</>
 					) : (
 						<>
-							<li><Link to="/login">Login</Link></li>
-							<li><Link to="/signup">Signup</Link></li>
+							<li>
+								<Link
+									to="/login"
+									className="px-3 py-2 rounded hover:bg-gray-700"
+								>
+									Login
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/signup"
+									className="px-3 py-2 rounded hover:bg-gray-700"
+								>
+									Signup
+								</Link>
+							</li>
 						</>
 					)}
 				</ul>
