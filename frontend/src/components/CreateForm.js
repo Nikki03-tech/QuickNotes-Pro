@@ -7,6 +7,8 @@ import {
 	setCreateForm,
 } from "../stores/notesReducer";
 
+axios.defaults.withCredentials = true;
+
 const CreateForm = () => {
 	const createForm = useSelector((state) => state.notes.createForm);
 	const updateForm = useSelector((state) => state.notes.updateForm);
@@ -14,9 +16,18 @@ const CreateForm = () => {
 
 	const createNote = async (e) => {
 		e.preventDefault();
-		const res = await axios.post("/api/notes", createForm);
-		dispatch(addNote(res.data.note));
-		dispatch(resetCreateForm());
+
+		try {
+			const res = await axios.post("/api/notes", createForm, {
+				withCredentials: true,
+			});
+
+			dispatch(addNote(res.data.note));
+			dispatch(resetCreateForm());
+		} catch (error) {
+			console.log(error.response?.data || error.message);
+			alert("Failed to create note");
+		}
 	};
 
 	const updateCreateFormField = (e) => {
@@ -33,25 +44,33 @@ const CreateForm = () => {
 		<div>
 			{!updateForm._id && (
 				<div className="p-4 bg-white rounded shadow-md">
-					<h2 className="mb-4 text-lg font-bold">Create note</h2>
+					<h2 className="mb-4 text-lg font-bold">Create Note</h2>
+
 					<form onSubmit={createNote}>
 						<input
-							className="w-full px-3 py-2 mb-4 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-							onChange={updateCreateFormField}
-							value={createForm.title}
+							type="text"
 							name="title"
-						/>
-						<textarea
-							className="w-full px-3 py-2 mb-4 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+							placeholder="Title"
+							value={createForm.title}
 							onChange={updateCreateFormField}
-							value={createForm.description}
-							name="description"
+							className="w-full px-3 py-2 mb-4 border rounded"
+							required
 						/>
+
+						<textarea
+							name="description"
+							placeholder="Description"
+							value={createForm.description}
+							onChange={updateCreateFormField}
+							className="w-full px-3 py-2 mb-4 border rounded"
+							required
+						/>
+
 						<button
 							type="submit"
-							className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
+							className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
 						>
-							Create note
+							Create Note
 						</button>
 					</form>
 				</div>
