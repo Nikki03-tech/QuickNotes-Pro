@@ -142,7 +142,9 @@ npm start
 
 ## 📸 Screenshots
 
-*(Add screenshots here after UI is finalized)*
+<img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/f4dba46f-cf1d-4abe-b110-3a3c5a317e6b" />
+<img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/9ad02ac4-6db4-42d2-9325-78f4a7076b9b" />
+
 
 ---
 
