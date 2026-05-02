@@ -141,9 +141,12 @@ npm start
 ---
 
 ## 📸 Screenshots
-
+Login Page:
 <img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/f4dba46f-cf1d-4abe-b110-3a3c5a317e6b" />
+Signup Page:
 <img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/9ad02ac4-6db4-42d2-9325-78f4a7076b9b" />
+Notes creation:
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/28091bda-40f0-42fc-afec-8cdfca9d635d" />
 
 
 ---
