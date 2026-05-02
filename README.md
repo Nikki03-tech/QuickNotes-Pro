@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-🔗 https://quicknotes-pro.vercel.app *(update after deployment)*
+🔗 https://quick-notes-pro-8fkv-9a1pahjr5-nikki03-techs-projects.vercel.app/signup
 
 ---
 
