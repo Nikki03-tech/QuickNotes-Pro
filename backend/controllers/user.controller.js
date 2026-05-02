@@ -69,11 +69,11 @@ const login = async (req, res, next) => {
 		);
 
 		res.cookie("Authorization", token, {
-			expires: new Date(exp),
-			httpOnly: true,
-			sameSite: "lax",
-			secure: process.env.NODE_ENV === "production",
-		});
+	expires: new Date(exp),
+	httpOnly: true,
+	sameSite: "none",
+	secure: true,
+});
 
 		res.status(200).json({
 			email: user.email,
