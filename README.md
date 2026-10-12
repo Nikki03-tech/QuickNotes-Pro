@@ -1,110 +1,62 @@
-# 📒 QuickNotes Pro
+# QuickNotes Pro
 
-> A modern, full-stack note-taking application built with the MERN stack, designed for speed, simplicity, and secure user experience.
+A full-stack note-taking application built with a React frontend and a Node.js/Express backend. The project focuses on organising notes through a straightforward interface and an API-backed workflow.
 
----
+## Live Demo
 
-## 🚀 Live Demo
+[Open QuickNotes Pro](https://quick-notes-pro-8fkv-9a1pahjr5-nikki03-techs-projects.vercel.app/signup)
 
-🔗 https://quick-notes-pro-8fkv-9a1pahjr5-nikki03-techs-projects.vercel.app/signup
+The hosted URL may change if the deployment is moved or redeployed.
 
----
+## Features
 
-## 🧠 Overview
+- Sign up and log in through the app's authentication flow
+- Create, view, update, and delete notes
+- React frontend with Redux-based state management
+- Express backend and MongoDB integration
+- Responsive interface for everyday note management
 
-**QuickNotes Pro** is a feature-rich note management application that allows users to securely create, edit, and organize their notes in real time. Built using the **MERN stack**, the app emphasizes clean UI, efficient state management, and secure authentication.
+Authentication and security should be tested in the deployed environment before using real or sensitive information.
 
----
+## Tech Stack
 
-## ✨ Features
+| Layer | Technologies |
+| --- | --- |
+| Frontend | React, React Router, Redux Toolkit, Axios, Tailwind CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB |
+| Authentication | JWT-based flow (as implemented in the project) |
 
-* 🔐 **User Authentication**
+## Repository Structure
 
-  * Secure signup/login with JWT
-  * Protected routes for authenticated users
-
-* 📝 **Notes Management**
-
-  * Create, update, delete notes
-  * View all notes in a structured layout
-
-* ⚡ **Responsive UI**
-
-  * Smooth and modern interface
-  * Optimized for performance
-
-* 🔄 **State Management**
-
-  * Redux Toolkit for global state handling
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-* React.js
-* Redux Toolkit
-* Tailwind CSS
-
-### Backend
-
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB
-
----
-
-## 📂 Project Structure
-
-```
+```text
 QuickNotes-Pro/
-│
-├── backend/        # Express API & MongoDB logic
-├── frontend/       # React + Redux frontend
+├── backend/    # API and database integration
+├── frontend/   # React application
 └── README.md
 ```
 
----
+## Run Locally
 
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Nikki03-tech/QuickNotes-Pro.git
 cd QuickNotes-Pro
 ```
 
----
-
-### 2️⃣ Backend Setup
+### 2. Start the backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Create `.env` file:
+Create a local `.env` file using the variable names expected by the backend. Configure your MongoDB connection string and JWT secret locally; never commit credentials. Then run the backend script defined in the backend's `package.json`.
 
-```env
-PORT=3001
-MONGODB_URI=your_mongodb_uri
-SECRET=your_jwt_secret
-```
+### 3. Start the frontend
 
-Run backend:
-
-```bash
-npm run dev
-```
-
----
-
-### 3️⃣ Frontend Setup
+In a second terminal:
 
 ```bash
 cd frontend
@@ -112,70 +64,26 @@ npm install
 npm start
 ```
 
----
+Use the backend URL and port expected by the frontend configuration. The frontend uses Create React App scripts.
 
-## 🔌 API Endpoints
+## API Areas
 
-### 📝 Notes
+The README's original API design includes note operations and authentication routes. Refer to the backend route files for the current exact paths and request payloads before integrating another client.
 
-* `GET /api/notes`
-* `POST /api/notes`
-* `PUT /api/notes/:id`
-* `DELETE /api/notes/:id`
+## Screenshots
 
-### 🔐 Auth
+The repository's existing README images show the login, signup, and note-creation flows. See the [repository](https://github.com/Nikki03-tech/QuickNotes-Pro) for the latest screenshots and source.
 
-* `POST /api/auth/signup`
-* `POST /api/auth/login`
-* `GET /api/auth/logout`
-* `GET /api/auth/check-auth`
+## Potential Next Steps
 
----
+- Add search, filtering, categories, and tags
+- Improve validation and user-facing API error states
+- Document exact environment variables and API payloads
+- Add automated tests for authentication and note CRUD flows
 
-## 🔒 Authentication
+## Author
 
-* Uses **JWT (JSON Web Tokens)**
-* Ensures secure access to protected routes
-* Token-based session management
+**Nikitha Singh Raj Purohit** · B.Tech CSE & IT, Class of 2027
 
----
-
-## 📸 Screenshots
-Login Page:
-<img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/f4dba46f-cf1d-4abe-b110-3a3c5a317e6b" />
-Signup Page:
-<img width="1919" height="854" alt="image" src="https://github.com/user-attachments/assets/9ad02ac4-6db4-42d2-9325-78f4a7076b9b" />
-Notes creation:
-<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/28091bda-40f0-42fc-afec-8cdfca9d635d" />
-
-
----
-
-## 🌱 Future Enhancements
-
-* 🔍 Search and filter notes
-* 📂 Categories & tags
-* 🌙 Dark mode toggle
-* 📱 Mobile optimization
-
----
-
-## 📌 Key Highlights
-
-* Full-stack MERN application
-* Clean and scalable folder structure
-* Secure authentication system
-* Production-ready architecture
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## 👩‍💻 Author
-
-**Nikitha Singh Rajpurohit**
-🔗 https://github.com/Nikki03-tech
+- [GitHub](https://github.com/Nikki03-tech)
+- [LinkedIn](https://www.linkedin.com/in/nikitha-singh-raj-purohit-862317301/)
